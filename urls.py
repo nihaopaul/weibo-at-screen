@@ -234,9 +234,9 @@ def do_admin():
 <p>App Secret:</p>
 <p><input type="text" name="app_secret" value="%s" /></p>
 <p>Old Password:</p>
-<p><input type="password" name="passwd" readonly="readonly" value="%s" /></p>
+<p><input type="text" name="passwd" readonly="readonly" value="%s" /></p>
 <p>New Password:</p>
-<p><input type="password" name="new_passwd" value="%s" /></p>
+<p><input type="text" name="new_passwd" value="%s" /></p>
 <p>WARNING: click submit will update app_id, app_secret and admin password!</p>
 <p><input type="submit" name="submit" value="Submit" /></p>
 </form>

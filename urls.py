@@ -140,6 +140,7 @@ def callback():
     logging.info('access token: %s' % json.dumps(r))
     access_token, expires_in, uid = r.access_token, r.expires_in, r.uid
     client.set_access_token(access_token, expires_in)
+    '''
     u = client.users.show.get(uid=uid)
     logging.info('got user: %s' % uid)
     users = db.select('select * from users where id=?', uid)
@@ -157,6 +158,7 @@ def callback():
     else:
         user['id'] = uid
         db.insert('users', **user)
+    '''
     _make_cookie(uid, access_token, expires_in)
     raise seeother('/')
 

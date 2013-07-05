@@ -6,8 +6,11 @@
     <!--[if lt IE 9]>
         <script src="/static/js/html5.js"></script>
     <![endif]-->
+    <!--
     <link rel="stylesheet" href="/static/css/bootstrap.css" />
     <link rel="stylesheet" href="/static/css/custom.css" />
+    -->
+    <link rel="stylesheet" href="/static/css/pauls.css" />
 
     <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.postjson.js"></script>
@@ -133,10 +136,14 @@ function append_weibo(statuses) {
             if (st.retweeted_status.thumbnail_pic) {
                 L.push('  <div class="weibo-pic"><a href="' + st.retweeted_status.original_pic + '" target="_blank"><img src="' + st.retweeted_status.thumbnail_pic + '" /></a></div>');
             }
+            /*
             L.push('    <div class="weibo-time">' + format_time(st.retweeted_status.created_at) + ' | 转发(' + st.retweeted_status.reposts_count + ') | 评论(' + st.retweeted_status.comments_count + ')</div>');
+            */
             L.push('  </div>');
         }
+        /*
         L.push('  <div class="weibo-time">' + format_time(st.created_at) + ' | 转发(' + st.reposts_count + ') | 评论(' + st.comments_count + ')</div>');
+        */
         L.push('</div>');
     });
     $('#weibo-list').prepend(L.join('\n'));
@@ -193,6 +200,7 @@ function post_weibo() {
                 $('#span-post-ok').show();
                 $('#text-post').val('');
                 load_weibo();
+                $('.weibo:gt(20)').remove();
             }
     }).error(function() {
             $('#text-post').removeAttr('disabled');
@@ -204,52 +212,16 @@ function post_weibo() {
     </script>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container" style="width:940px">
-                <div class="nav-collapse">
-                    <ul class="nav pull-right" style="padding-right:20px">
-                        <li><a href="/signout">登出</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div><!-- /navbar -->
+
 
     <div class="container">
-        <div class="row">
-            <div class="span3">
-                <div style="height:60px"></div>
-            </div>
-        </div>
 
-        <div class="row" style="background-color:#fff">
-            <div class="span3">
-                <div class="rightborder" style="height: 30px"></div>
-            </div>
-        </div>
-
-        <div class="row" style="background-color:#fff">
-            <div class="span3">
-                <div class="rightborder mylogo">
-                    <div class="big"><img class="big" src="{{ user.image_url }}" /></div>
-                    <div class="info">关注：<span>{{ user.friends_count }}</span></div>
-                    <div class="info">粉丝：<span>{{ user.followers_count }}</span></div>
-                    <div class="info">微博：<span>{{ user.statuses_count }}</span></div>
-                    <div class="clearfix"></div>
-                    <div class="name">{{ user.name }}<i class="v-{{ user.verified_type }}"></i></div>
-                </div>
-                <div class="rightborder" style="height: 20px"></div>
-            </div>
-            <div class="span9">
-
-            </div>
-        </div>
+        
 
         <div class="row topborder" style="background-color:#fff">
 
 
-            <div class="span12" style="padding-top:20px">
+            <div class="span12">
                 <div class="row">
                     <div class="span12">
                         <div id="weibo-hint" class="hint">
@@ -267,22 +239,20 @@ function post_weibo() {
             </div>
         </div>
 
-        <div class="row" style="background-color:#fff">
-            <div class="span12">
-                <div class="topborder"></div>
-            </div>
-        </div>
 
-        <div id="footer" class="row" style="background-color:#fff">
-            <div class="span3">
-
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="span12" style="height:20px"></div>
-        </div>
     </div>
+
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="nav-collapse">
+                    <ul class="nav pull-right" style="padding-right:20px">
+                        <li><a href="/signout">登出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- /navbar -->
 </body>
 </html>

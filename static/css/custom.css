@@ -23,15 +23,15 @@ img.big {
 }
 
 div.mylogo div.info {
-  line-height: 24px;
+  line-height: 2.2em;
 }
 
 div.info span {
-  font-size: 16px;
+  font-size: 1.2em;
 }
 
 div.mylogo div.name {
-  font-size: 16px;
+  font-size: 1.2em;
 }
 
 img.small {
@@ -39,23 +39,11 @@ img.small {
   height: 50px;
 }
 
-div.recommend {
-  padding-left: 30px;
-}
 
-div.count {
-  float:right;
-  padding:4px 50px 0px 0px;
-}
 
-#span-post-count {
-  font-size: 18px;
-  font-style: italic;
-  color: #df463f;
-}
 
 div.h4 {
-  font-size: 14px;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -68,7 +56,7 @@ div.list div {
 
 div.shadow {
   padding-bottom: 16px;
-  font-size: 24px;
+  font-size: 2.4em;
   font-weight: bold;
   color: #707070;
   text-shadow: 1px 1px 0px #EEE, 2px 2px 0px #707070;
@@ -104,7 +92,7 @@ div.weibo > div.weibo-img {
 
 div.weibo > div.weibo-user {
   margin-left: 60px;
-  font-size: 14px;
+  font-size: 1.2em;
   font-weight: bold;
   line-height: 22px;
 }
@@ -134,7 +122,7 @@ div.weibo > div.weibo-ref {
 }
 
 div.weibo-ref > div.weibo-user {
-  font-size: 14px;
+  font-size: 1.2em;
   font-weight: bold;
   line-height: 22px;
 }

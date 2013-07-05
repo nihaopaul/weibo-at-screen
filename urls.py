@@ -98,7 +98,7 @@ def load():
     client = _create_client()
     client.set_access_token(u.auth_token, u.expired_time)
     try:
-        r = client.statuses.mentions.get(count=20)
+        r = client.statuses.mentions.get(count=5)
         return [_format_weibo(s) for s in r.statuses]
     except APIError, e:
         return dict(error='failed')
@@ -116,7 +116,7 @@ def tag():
     client = _create_client()
     client.set_access_token(u.auth_token, u.expired_time)
     try:
-        r = client.statuses.mentions.get(since_id=i.lastid, count=20 )
+        r = client.statuses.mentions.get(since_id=i.lastid, count=5 )
         return [_format_weibo(s) for s in r.statuses]
     except APIError, e:
         return dict(error='failed')

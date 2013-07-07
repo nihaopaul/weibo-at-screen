@@ -17,7 +17,7 @@
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 $(function() {
-    window.setInterval("tag()", 120000);
+    window.setInterval("tag()", 30000);
     //timer_check();
     //$('#btn-post').click(post_weibo);
     load_weibo();
@@ -147,6 +147,17 @@ function append_weibo(statuses) {
         L.push('</div>');
     });
     $('#weibo-list').prepend(L.join('\n'));
+    $('.weibo:gt(4)').remove();
+    if ($('.weibo:first-child .weibo-pic a')) {
+        
+        $('.imageoverflow img').attr('src', $('.weibo:first-child .weibo-pic a').attr('href'));
+        $('.imageoverflow').fadeIn('slow');
+    } else {
+        $('.imageoverflow').fadeOut('slow');
+    }
+
+
+
 }
 
 function load_weibo() {
@@ -154,6 +165,7 @@ function load_weibo() {
     $('#span-load-ok').hide();
     $('#span-load-hint').hide();
     $('#span-load-failed').hide();
+    $('.imageoverflow').hide();
     $.postJSON('/load', '', function(result) {
             $('#span-loading').hide();
             if (result.error) {
@@ -165,6 +177,7 @@ function load_weibo() {
                
                 g_lastid = result[0].id;
                 append_weibo(result);
+
             }
     }).error(function() {
             $('#span-loading').hide();
@@ -177,9 +190,9 @@ function load_weibo() {
 </head>
 <body>
 
-
+<div class="imageoverflow"><img /></div>
     <div class="container">
-
+        
         
 
         <div class="row topborder" style="background-color:#fff">

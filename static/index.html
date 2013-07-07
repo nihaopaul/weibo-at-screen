@@ -149,7 +149,8 @@ function append_weibo(statuses) {
     $('#weibo-list').prepend(L.join('\n'));
     $('.weibo:gt(4)').remove();
     if ($('.weibo:first-child .weibo-pic a')) {
-        
+        $('.imageoverflow h1').text($('.weibo:first-child .weibo-user a').text());
+        $('.imageoverflow p').text($('.weibo:first-child .weibo-text').text());
         $('.imageoverflow img').attr('src', $('.weibo:first-child .weibo-pic a').attr('href'));
         $('.imageoverflow').fadeIn('slow');
     } else {
@@ -190,9 +191,8 @@ function load_weibo() {
 </head>
 <body>
 
-<div class="imageoverflow"><img /></div>
+<div class="imageoverflow"><img /><span class="text"><h1></h1><p></p></span></div>
     <div class="container">
-        
         
 
         <div class="row topborder" style="background-color:#fff">
